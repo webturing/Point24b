@@ -18,7 +18,8 @@ public class MainActivity extends AppCompatActivity {
         final EditText editTextD = findViewById(R.id.editTextD);
         final TextView textViewResult = findViewById(R.id.textViewResult);
         final Button btnA = findViewById(R.id.btnA);
-
+        final Button btnRandom = findViewById(R.id.btnRandom);
+        final Button btnExit = findViewById(R.id.btnExit);
         btnA.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -28,6 +29,26 @@ public class MainActivity extends AppCompatActivity {
                 int d = Integer.valueOf(editTextD.getText().toString());
                 Point point = new Point(a, b, c, d);
                 textViewResult.setText(point.getResult());
+            }
+        });
+        btnRandom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int n = 10;
+                int a = (int)(Math.random()*n+1);
+                int b = (int)(Math.random()*n+1);
+                int c = (int)(Math.random()*n+1);
+                int d = (int)(Math.random()*n+1);
+                editTextA.setText(String.valueOf(a));
+                editTextB.setText(String.valueOf(b));
+                editTextC.setText(String.valueOf(c));
+                editTextD.setText(String.valueOf(d));
+            }
+        });
+        btnExit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                System.exit(0);
             }
         });
     }
