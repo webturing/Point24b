@@ -7,19 +7,18 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        final EditText editTextA = findViewById(R.id.editTextA);
-        final EditText editTextB = findViewById(R.id.editTextB);
-        final EditText editTextC = findViewById(R.id.editTextC);
-        final EditText editTextD = findViewById(R.id.editTextD);
-        final TextView textViewResult = findViewById(R.id.textViewResult);
-        final Button btnA = findViewById(R.id.btnA);
-        final Button btnRandom = findViewById(R.id.btnRandom);
-        final Button btnExit = findViewById(R.id.btnExit);
+        final EditText editTextA = (EditText) findViewById(R.id.editTextA);
+        final EditText editTextB = (EditText) findViewById(R.id.editTextB);
+        final EditText editTextC = (EditText) findViewById(R.id.editTextC);
+        final EditText editTextD = (EditText) findViewById(R.id.editTextD);
+        final TextView textViewResult = (TextView) findViewById(R.id.textViewResult);
+        final Button btnA = (Button) findViewById(R.id.btnA);
+        final Button btnRandom = (Button) findViewById(R.id.btnRandom);
+        final Button btnExit = (Button) findViewById(R.id.btnExit);
         btnA.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

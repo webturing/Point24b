@@ -4,11 +4,10 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Stack;
 
-public class Tools {
+public class Evaluator {
     public static void main(String[] args) {
-
-        System.out.println(IsNumber("12.345"));
-        System.out.println(IsNumber("sjkfjka"));
+        System.out.println(isNumber("12.345"));
+        System.out.println(isNumber("sjkfjka"));
         String[] exp = "5 - 1 5 /   5 *".split("\\s+");
 
         System.out.println(eval(exp));
@@ -21,9 +20,9 @@ public class Tools {
     public static double eval(List<String> exp) {
         Stack<Double> stack = new Stack<Double>();
         for (String s : exp) {
-            if (IsNumber(s)) {
+            if (isNumber(s)) {
                 stack.push(Double.parseDouble(s));
-            } else if ("+-*/".contains(s)) {
+            } else if (isOperator(s)) {
                 if (stack.isEmpty()) return -1;//出错
                 double b = stack.pop();
                 double a = 0;
@@ -50,10 +49,15 @@ public class Tools {
                 stack.push(result);
             }
         }
+        if (stack.size() != 1) return -1;
         return stack.peek();
     }
 
-    private static boolean IsNumber(String s) {
+    public static boolean isOperator(String s) {
+        return "+-*/".contains(s);
+    }
+
+    public static boolean isNumber(String s) {//isXXXX hasXXX
         try {
             double t = Double.parseDouble(s);
             return true;
