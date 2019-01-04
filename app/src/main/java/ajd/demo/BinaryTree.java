@@ -8,6 +8,7 @@ public class BinaryTree {
     public static void main(String[] args) {
         BinaryTree tree = BinaryTree.createTree("5 1 5 / - 5 *".split(" "));
         tree.midVisit();
+        System.out.println();
         StringBuffer buffer = new StringBuffer();
         tree.midVisit(buffer);
         System.out.println(buffer);

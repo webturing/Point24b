@@ -32,7 +32,7 @@ public class Searcher {
             }
             exp.removeAll(ops);//细节
             ++cnt;
-            if (cnt > 300000) {
+            if (cnt > 10000) {
                 return false;
             }
         }

@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Point24 {
     public static void main(String[] args) {
-        System.out.println(solve(new int[]{1, 2, 3, 14}));
+        System.out.println(solve(new int[]{192, 2, 2, 2}));
     }
 
     public static String solve(int[] a) {

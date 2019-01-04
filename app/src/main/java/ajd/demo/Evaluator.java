@@ -57,6 +57,13 @@ public class Evaluator {
         return "+-*/".contains(s);
     }
 
+    public static int rank(String op) {
+        if (op.equals("*") || op.equals("/"))
+            return 2;
+        if (op.equals("+") || op.equals("-"))
+            return 1;
+        return 0;
+    }
     public static boolean isNumber(String s) {//isXXXX hasXXX
         try {
             double t = Double.parseDouble(s);
