@@ -78,7 +78,7 @@ public class Evaluator {
             return 2;
         if (op.equals("+") || op.equals("-"))
             return 1;
-        return 0;
+        return 5;
     }
 
 }
