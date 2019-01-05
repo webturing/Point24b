@@ -68,8 +68,8 @@ public class BinaryTree {
 
     public BinaryTree(String root, BinaryTree left, BinaryTree right) {
         this.root = root;
-        this.left = left;
-        this.right = right;
+        this.setLeft(left);
+        this.setRight(right);
     }
 
     public String getRoot() {
