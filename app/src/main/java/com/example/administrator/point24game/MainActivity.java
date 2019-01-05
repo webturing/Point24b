@@ -44,10 +44,12 @@ public class MainActivity extends AppCompatActivity {
                 int b = (int)(Math.random()*n+1);
                 int c = (int)(Math.random()*n+1);
                 int d = (int)(Math.random()*n+1);
-                editTextA.setText(String.valueOf(a));
-                editTextB.setText(String.valueOf(b));
-                editTextC.setText(String.valueOf(c));
-                editTextD.setText(String.valueOf(d));
+                int arr[] = new int[]{a, b, c, d};
+                Arrays.sort(arr);
+                editTextA.setText(String.valueOf(arr[0]));
+                editTextB.setText(String.valueOf(arr[1]));
+                editTextC.setText(String.valueOf(arr[2]));
+                editTextD.setText(String.valueOf(arr[3]));
             }
         });
         btnExit.setOnClickListener(new View.OnClickListener() {
