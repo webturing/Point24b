@@ -6,6 +6,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.util.Arrays;
+
 import ajd.demo.Point24;
 
 public class MainActivity extends AppCompatActivity {
@@ -29,7 +31,9 @@ public class MainActivity extends AppCompatActivity {
                 int c = Integer.valueOf(editTextC.getText().toString());
                 int d = Integer.valueOf(editTextD.getText().toString());
                // Point point = new Point(a, b, c, d);
-                textViewResult.setText(Point24.solve(new int[]{a,b,c,d}));
+                int arr[] = new int[]{a, b, c, d};
+                Arrays.sort(arr);
+                textViewResult.setText(Point24.solve(arr));
             }
         });
         btnRandom.setOnClickListener(new View.OnClickListener() {
