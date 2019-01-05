@@ -48,7 +48,11 @@ public class Evaluator {
                         result = a * b;
                         break;
                     case "/":
-                        result = a / b;
+                        if (b == 0) {
+                            result = Double.MAX_VALUE;
+                        } else {
+                            result = a / b;
+                        }
                         break;
                 }
                 stack.push(result);
