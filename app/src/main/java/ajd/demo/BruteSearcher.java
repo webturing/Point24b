@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class BruteSearcher {
-    static final int FAC[] = {1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880};
+
 
     public static boolean bruteSearch(int[] a, List<String> exp) {
         List<String> exp2 = new ArrayList<>();
@@ -18,7 +18,7 @@ public class BruteSearcher {
                     ops.add(Point24.OPS[j]);
                     ops.add(Point24.OPS[k]);
                     exp2.addAll(ops);
-                    for (int c = 0; c < FAC[7]; c++) {
+                    for (int c = 0; c < Permutation.FAC[7]; c++) {
                         int d = c;
                         int[] idx = Permutation.codel(c, 7);
                         for (int g = 0; g < 7; g++) {
