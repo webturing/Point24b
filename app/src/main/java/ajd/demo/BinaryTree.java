@@ -68,8 +68,10 @@ public class BinaryTree {
 
     public BinaryTree(String root, BinaryTree left, BinaryTree right) {
         this.root = root;
-        this.setLeft(left);
-        this.setRight(right);
+        if (left != null)
+            this.setLeft(left);
+        if (right != null)
+            this.setRight(right);
     }
 
     public String getRoot() {
@@ -86,9 +88,7 @@ public class BinaryTree {
 
     public void setLeft(BinaryTree left) {
         this.left = left;
-        if (Evaluator.less(left.root, root))
-            left.braced = true;
-
+        left.braced = Evaluator.less(left.root, root);
     }
 
     public BinaryTree getRight() {
@@ -97,8 +97,7 @@ public class BinaryTree {
 
     public void setRight(BinaryTree right) {
         this.right = right;
-        if (Evaluator.lessOrEqual( root,right.root))
-            right.braced = true;
+        right.braced = Evaluator.lessOrEqual(root, right.root);
     }
 
     String root;

@@ -5,32 +5,36 @@ import java.util.Arrays;
 import java.util.List;
 
 public class BruteSearcher {
-
-
-    public static boolean bruteSearch(int[] a, List<String> exp) {
-        List<String> exp2 = new ArrayList<>();
-        for (int i = 0; i < 4; i++) exp2.add(Integer.toString(a[i]));
-        for (int i = 0; i < 4; i++)
-            for (int j = 0; j < 4; j++)
-                for (int k = 0; k < 4; k++) {
-                    List<String> ops = new ArrayList<String>();
-                    ops.add(Point24.OPS[i]);
-                    ops.add(Point24.OPS[j]);
-                    ops.add(Point24.OPS[k]);
-                    exp2.addAll(ops);
-                    for (int c = 0; c < Permutation.FAC[7]; c++) {
-                        int d = c;
-                        int[] idx = Permutation.codel(c, 7);
-                        for (int g = 0; g < 7; g++) {
-                            exp.add(exp2.get(idx[g]));
+    public static boolean bruteSearch(int[] arr, List<String> exp) {
+        exp.clear();
+        for (int cc = 0; cc < Permutation.FAC[4]; cc++) {
+            int[] idx = Permutation.codel(cc, 4);
+            String a = String.valueOf(arr[idx[0]]);
+            String b = String.valueOf(arr[idx[1]]);
+            String c = String.valueOf(arr[idx[2]]);
+            String d = String.valueOf(arr[idx[3]]);
+            for (int i = 0; i < 4; i++)
+                for (int j = 0; j < 4; j++)
+                    for (int k = 0; k < 4; k++) {
+                        String X = Point24.OPS[i];
+                        String Y = Point24.OPS[j];
+                        String Z = Point24.OPS[k];
+                        for (String[] ee : new String[][]{
+                                {a, b, X, c, Y, d, Z},
+                                {a, b, c, X, Y, d, Z},
+                                {a, b, X, c, d, Y, Z},
+                                {a, b, c, X, d, Y, Z},
+                                {a, b, c, d, X, Y, Z},
+                        }) {
+                            if (Evaluator.eval(ee) == Point24.GOAL) {
+                                exp.addAll(Arrays.asList(ee));
+                                return true;
+                            }
                         }
-                        if (Evaluator.eval(exp) == Point24.GOAL) {
-                            return true;
-                        }
-                        exp.clear();
+
                     }
-                    exp2.removeAll(ops);
-                }
+
+        }
         return false;
     }
 
