@@ -51,14 +51,14 @@ public class BinaryTree {
     }
 
     void midVisit(StringBuffer buffer) {
-        if (!isEmpty() && braced)
+        if (braced)
             buffer.append("(");
         if (left != null)
             left.midVisit(buffer);
         buffer.append(root);
         if (right != null)
             right.midVisit(buffer);
-        if (!isEmpty() && braced)
+        if (braced)
             buffer.append(")");
     }
 
@@ -86,8 +86,9 @@ public class BinaryTree {
 
     public void setLeft(BinaryTree left) {
         this.left = left;
-        if (Evaluator.rank(left.root) < Evaluator.rank(root))
+        if (Evaluator.less(left.root, root))
             left.braced = true;
+
     }
 
     public BinaryTree getRight() {
@@ -96,7 +97,7 @@ public class BinaryTree {
 
     public void setRight(BinaryTree right) {
         this.right = right;
-        if (Evaluator.rank(left.root) <= Evaluator.rank(root))
+        if (Evaluator.lessOrEqual(right.root, root))
             right.braced = true;
     }
 

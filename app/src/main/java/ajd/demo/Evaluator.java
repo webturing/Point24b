@@ -10,8 +10,6 @@ import java.util.Stack;
  */
 public class Evaluator {
     public static void main(String[] args) {
-        System.out.println(isNumber("12.345"));
-        System.out.println(isNumber("sjkfjka"));
         String[] exp = "5 - 1 5 /   5 *".split("\\s+");
         System.out.println(eval(exp));
     }
@@ -73,12 +71,14 @@ public class Evaluator {
         }
     }
 
-    public static int rank(String op) {
-        if (op.equals("*") || op.equals("/"))
-            return 2;
-        if (op.equals("+") || op.equals("-"))
-            return 1;
-        return 5;
+    static String[] LOE = "-- /* // +* -* +/ -/".split(" ");
+    static String[] LE = "+* +/ -* -/".split(" ");
+
+    public static boolean lessOrEqual(String a, String b) {
+        return Arrays.asList(LOE).contains(a + b);
     }
 
+    public static boolean less(String a, String b) {
+        return Arrays.asList(LE).contains(a + b);
+    }
 }
