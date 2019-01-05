@@ -4,12 +4,15 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Stack;
 
+/**
+ * 后缀求解器和判定
+ * 接受一个后缀表达式，如果合法则计算值（利用jdk的Stack工具类) 否则返回-1
+ */
 public class Evaluator {
     public static void main(String[] args) {
         System.out.println(isNumber("12.345"));
         System.out.println(isNumber("sjkfjka"));
         String[] exp = "5 - 1 5 /   5 *".split("\\s+");
-
         System.out.println(eval(exp));
     }
 
@@ -17,6 +20,10 @@ public class Evaluator {
         return eval(Arrays.asList(exp));
     }
 
+    /**
+     * @param exp 后缀表达式
+     * @return 如果合法则计算值（利用jdk的Stack工具类)
+     */
     public static double eval(List<String> exp) {
         Stack<Double> stack = new Stack<Double>();
         for (String s : exp) {
@@ -57,13 +64,6 @@ public class Evaluator {
         return "+-*/".contains(s);
     }
 
-    public static int rank(String op) {
-        if (op.equals("*") || op.equals("/"))
-            return 2;
-        if (op.equals("+") || op.equals("-"))
-            return 1;
-        return 0;
-    }
     public static boolean isNumber(String s) {//isXXXX hasXXX
         try {
             double t = Double.parseDouble(s);
@@ -72,4 +72,13 @@ public class Evaluator {
             return false;
         }
     }
+
+    public static int rank(String op) {
+        if (op.equals("*") || op.equals("/"))
+            return 2;
+        if (op.equals("+") || op.equals("-"))
+            return 1;
+        return 0;
+    }
+
 }
