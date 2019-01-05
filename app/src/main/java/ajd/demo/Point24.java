@@ -26,7 +26,7 @@ public class Point24 {
 
     public static String solve(int[] a) {
         List<String> exp = new ArrayList<>();
-        if (RandomSearcher.randSearch(a, exp)) {
+        if (BruteSearcher.bruteSearch(a, exp)) {
             StringBuffer buffer = new StringBuffer();
             BinaryTree binaryTree = BinaryTree.createTree(exp);
             binaryTree.midVisit(buffer);

@@ -1,10 +1,12 @@
 package com.example.administrator.point24game;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import ajd.demo.Point24;
 
 public class MainActivity extends AppCompatActivity {
     @Override
@@ -26,8 +28,8 @@ public class MainActivity extends AppCompatActivity {
                 int b = Integer.valueOf(editTextB.getText().toString());
                 int c = Integer.valueOf(editTextC.getText().toString());
                 int d = Integer.valueOf(editTextD.getText().toString());
-                Point point = new Point(a, b, c, d);
-                textViewResult.setText(point.getResult());
+               // Point point = new Point(a, b, c, d);
+                textViewResult.setText(Point24.solve(new int[]{a,b,c,d}));
             }
         });
         btnRandom.setOnClickListener(new View.OnClickListener() {

@@ -71,14 +71,11 @@ public class Evaluator {
         }
     }
 
-    static String[] LOE = "-- /* // +* -* +/ -/".split(" ");
-    static String[] LE = "+* +/ -* -/".split(" ");
-
     public static boolean lessOrEqual(String a, String b) {
-        return Arrays.asList(LOE).contains(a + b);
+        return Arrays.asList("-- -+ *+ *- */ /+ /- /* //".split(" ")).contains(a + b);
     }
 
     public static boolean less(String a, String b) {
-        return Arrays.asList(LE).contains(a + b);
+        return Arrays.asList("+* +/ -* -/".split(" ")).contains(a + b);
     }
 }

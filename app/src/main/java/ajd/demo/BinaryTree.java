@@ -97,7 +97,7 @@ public class BinaryTree {
 
     public void setRight(BinaryTree right) {
         this.right = right;
-        if (Evaluator.lessOrEqual(right.root, root))
+        if (Evaluator.lessOrEqual( root,right.root))
             right.braced = true;
     }
 
